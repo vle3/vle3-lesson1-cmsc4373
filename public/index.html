@@ -41,6 +41,24 @@
     </div>
   </div>
 
+  <!-- Modal: Popup Info Box-->
+  <div class="modal fade" id="modal-infobox" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="modal-infobox-title" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="modal-infobox-title"></h5>
+        </div>
+        <div class="modal-body" id="modal-infobox-body">
+          
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
@@ -50,7 +68,8 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item modal-preauth">
-            <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modal-signin-form">Sign In</button>
+            <button class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#modal-signin-form">Sign
+              In</button>
           </li>
           <li class="nav-item modal-postauth">
             <button class="btn btn-outline-primary">Home</button>
@@ -59,7 +78,7 @@
             <button class="btn btn-outline-primary">About</button>
           </li>
           <li class="nav-item modal-postauth">
-            <button class="btn btn-outline-danger">Sign Out</button>
+            <button id="menu-signout" class="btn btn-outline-danger">Sign Out</button>
           </li>
         </ul>
         <div class="modal-postauth">
