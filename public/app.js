@@ -1,1 +1,3 @@
-console.log('from app.js')
+import * as FirebaseAuth from './controller/firebase_auth.js'
+
+FirebaseAuth.addEventListener();
