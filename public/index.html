@@ -50,10 +50,39 @@
           <h5 class="modal-title" id="modal-infobox-title"></h5>
         </div>
         <div class="modal-body" id="modal-infobox-body">
-          
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal: form to create new thread -->
+  <div class="modal fade" id="modal-create-thread" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="modal-create-thread-label" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fs-5" id="modal-create-thread-label">Create New Thread</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form id="form-create-thread" method="post">
+            <div>
+              <input type="text" name="title" placeholder="Title of the thread" required minlength="2">
+            </div>
+            <div>
+              <input type="text" name="keywords" placeholder="Search keys separated by a blank" required minlength="2">
+            </div>
+            <div>
+              <textarea name="content" cols="50" rows="5" placeholder="Content of the thread" required minlength="5"></textarea>
+            </div>
+            <div>
+              <button type="submit" class="btn btn-outline-danger">Create</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
@@ -72,10 +101,10 @@
               In</button>
           </li>
           <li class="nav-item modal-postauth">
-            <button class="btn btn-outline-primary">Home</button>
+            <button id="menu-home" class="btn btn-outline-primary">Home</button>
           </li>
           <li class="nav-item modal-postauth">
-            <button class="btn btn-outline-primary">About</button>
+            <button id="menu-about" class="btn btn-outline-primary">About</button>
           </li>
           <li class="nav-item modal-postauth">
             <button id="menu-signout" class="btn btn-outline-danger">Sign Out</button>
@@ -92,6 +121,11 @@
       </div>
     </div>
   </nav>
+
+  <!--MAIN ROOT-->
+  <div id="root" class="bg-light m-3 p-4">
+
+  </div>
 
   <script type="module">
     // Import the functions you need from the SDKs you need

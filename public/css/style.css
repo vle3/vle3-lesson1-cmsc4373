@@ -15,7 +15,7 @@ li.nav-item {
 }
 
 .modal-postauth{
-    display: block;
+    display: none;
 }
 
 input{
