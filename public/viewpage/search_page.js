@@ -24,6 +24,17 @@ export function addEventListeners(){
 
 export function search_page(joinedSearchKeys){
 
+    if(!joinedSearchKeys){
+        Util.info('Error', 'No search keys');
+        return;
+    }
+
+    const searchKeysArray = joinedSearchKeys.split(',');
+    if(searchKeysArray.length == 0){
+        Util.info('Error', 'No search keys');
+        return;
+    }
+
     // console.log('search keys: ' + joinedSearchKeys);
     if(!currentUser){
         Elements.root.innerHTML = ProtectedMessage.html;
