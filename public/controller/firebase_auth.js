@@ -8,9 +8,9 @@ import { routing } from './route.js'
 
 const auth = getAuth();
 
-export let currenUser;
+export let currentUser;
 
-export function addEventListener() {
+export function addEventListeners() {
     Elements.formSignIn.addEventListener('submit', async e => {
         e.preventDefault(); //keeps from refreshing the current page
         const email = e.target.email.value;
@@ -37,6 +37,7 @@ export function addEventListener() {
             Util.info('Sign Out Error', JSON.stringify(e));
             if(Constants.DEV)
                 console.log('sign out error' + e);
+                return;
         }
     });
 
@@ -46,7 +47,7 @@ export function addEventListener() {
 function authStateChangeObserver(user){
     if(user){
         //signed in
-        currenUser = user;
+        currentUser = user;
         let elements = document.getElementsByClassName('modal-preauth');
         for(let i = 0; i < elements.length; i++){
             elements[i].style.display = 'none';
@@ -61,8 +62,8 @@ function authStateChangeObserver(user){
     }
     else{
         //signed out
-        currenUser = null;
-        currenUser = user;
+        currentUser = null;
+        currentUser = user;
         let elements = document.getElementsByClassName('modal-preauth');
         for(let i = 0; i < elements.length; i++){
             elements[i].style.display = 'block';

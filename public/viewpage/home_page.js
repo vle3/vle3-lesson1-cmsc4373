@@ -1,6 +1,6 @@
 import * as Elements from './elements.js'
 import { routePath } from '../controller/route.js';
-import { currenUser } from '../controller/firebase_auth.js';
+import { currentUser } from '../controller/firebase_auth.js';
 import * as ProtectedMessage from './protected_message.js'
 import { Thread } from '../model/thread.js';
 import * as Constants from '../model/constants.js'
@@ -8,7 +8,7 @@ import * as FirestoreController from '../controller/firestore_controller.js'
 import * as Util from './util.js'
 import * as ThreadPage from './thread_page.js'
 
-export function addEventListener() {
+export function addEventListeners() {
     Elements.menuHome.addEventListener('click', async () => {
         history.pushState(null, null, routePath.HOME);
         const label = Util.disabledButton(Elements.menuHome)
@@ -29,8 +29,8 @@ async function addNewThread(e) {
     const title = e.target.title.value;
     const content = e.target.content.value;
     const keywords = e.target.keywords.value;
-    const uid = currenUser.uid;
-    const email = currenUser.email;
+    const uid = currentUser.uid;
+    const email = currentUser.email;
     const timestamp = Date.now();
     const keywordsArray = keywords.toLowerCase().match(/\S+/g);
 
@@ -67,7 +67,7 @@ async function addNewThread(e) {
 }
 
 export async function home_page() {
-    if (!currenUser) {
+    if (!currentUser) {
         Elements.root.innerHTML = ProtectedMessage.html;
         return;
     }
