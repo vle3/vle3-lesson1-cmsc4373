@@ -1,4 +1,7 @@
-import { getFirestore, collection, addDoc, getDocs, query,orderBy } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-firestore.js"
+import { 
+    getFirestore, collection, addDoc, getDocs, query,orderBy,
+    doc, getDoc,
+ } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-firestore.js"
 import { COLLECTIONS } from "../model/constants.js";
 import { Thread } from "../model/thread.js";
 
@@ -19,4 +22,13 @@ export async function getThreadList(){
         threadList.push(t);
     })
     return threadList;
+}
+
+export async function getOneThread(threadId){
+    const docRef = doc(db, COLLECTIONS.THREADS, threadId);
+    const docSnap = await getDoc(docRef);
+    if(!docSnap.exists()) return null; 
+    const t = new Thread(docSnap.data());
+    t.set_docId(threadId);
+    return t;
 }
