@@ -46,6 +46,28 @@ async function thread_page(threadId) {
         return;
     }
 
-    Elements.root.innerHTML = `${thread.title} | ${thread.content}`;
+    let html = `
+        <h4 class="bg-primary text-white">${thread.tittle}</h4>
+        <div>${thread.email} (At ${new Date(thread.timestamp).toString()})</div>
+        <div class="bg-secondary text-white">${thread.content}</div>
+        <hr>
+    `;
+    
+    html += '<div>'
+        // display replies
+    html += '</div>'
+
+    html += `
+        <div>
+            <form method="post">
+                <textarea name="content" required minlength="3" placeholder="Reply to this thread"></textarea>
+                <br>
+                <button type="submit" class="btn btn-outline-info">Post reply</button>
+            </form>
+        </div>
+    `;
+
+
+    Elements.root.innerHTML = html;
 
 }
