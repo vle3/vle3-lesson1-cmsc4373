@@ -5,6 +5,7 @@ export const root = document.getElementById('root');
 export const formSearch = document.getElementById('form-search');
 export const formSignIn = document.getElementById('form-signin');
 export const formCreateThread = document.getElementById('form-create-thread');
+export const formCreateAccount = document.getElementById('form-create-account');
 
 //menu buttons
 export const menuSignout = document.getElementById('menu-signout');
@@ -21,3 +22,4 @@ export const modalInfobox = {
 }
 
 export const modalCreateThread = new bootstrap.Modal(document.getElementById('modal-create-thread'), {backdrop: 'static'});
+export const modalCreateAccount = new bootstrap.Modal(document.getElementById('modal-create-account'), {backdrop: 'static'});

@@ -85,7 +85,7 @@ export async function home_page() {
 
 }
 
-function buildHomeScreen(threadList) {
+export function buildHomeScreen(threadList) {
     let html = ' ';
 
     html += `

@@ -52,3 +52,21 @@ export async function getReplyList(threadId) {
 
     return replies;
 }
+
+export async function searchThread(keywordsArray){
+    const threadList = [];
+    const q = query(collection(db, COLLECTIONS.THREADS), 
+        where('keywordsArray', 'array-contains-any', keywordsArray),
+        orderBy('timestamp', 'descn')
+    );
+
+    const snapShot = await getDocs(q);
+
+    snapShot.forEach(doc => {
+        const t = new Thread(doc.data());
+        t.set_docId(doc.id);
+        threadList.push(t);
+    });
+
+    return threadList;
+}
