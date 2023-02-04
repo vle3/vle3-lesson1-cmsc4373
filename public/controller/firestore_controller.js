@@ -57,7 +57,7 @@ export async function searchThread(keywordsArray){
     const threadList = [];
     const q = query(collection(db, COLLECTIONS.THREADS), 
         where('keywordsArray', 'array-contains-any', keywordsArray),
-        orderBy('timestamp', 'descn')
+        orderBy('timestamp', 'desc')
     );
 
     const snapShot = await getDocs(q);
